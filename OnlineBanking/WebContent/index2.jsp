@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="com.claim.model.*" %>
+    <% Customer customer = (Customer) session.getAttribute("customer"); %>
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Bank of Everyone</title>
+  <title>Bank of Michael</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -68,7 +70,7 @@
 									</button>
                 <!-- Brand -->
                 <a class="navbar-brand page-scroll sticky-logo" href="index.html">
-                  <h1><span>Bank of </span>Everyone</h1>
+                  <h1><span>Bank of </span><% out.print(customer.getFirstName()); %></h1>
                   <!-- Uncomment below if you prefer to use an image logo -->
                   <!-- <img src="img/logo.png" alt="" title=""> -->
 								</a>
@@ -1337,7 +1339,7 @@
             <div class="form contact-form">
               <div id="sendmessage">Your account has been created. Thank you!</div>
               <div id="errormessage"></div>
-              <form action="NewAccountServlet" method="post">
+              <form action="/NewAccountServlet" method="post">
                 <div class="form-group">
                 	<label for="firstName">First Name</label>
                   <input type="text" name="firstname" class="form-control" id="name" placeholder="Your First Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />

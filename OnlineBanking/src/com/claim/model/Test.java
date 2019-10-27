@@ -2,6 +2,7 @@ package com.claim.model;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.claim.controller.*;
 
@@ -15,12 +16,24 @@ public class Test
 		// String password, String street, String city, String state, String zipCode
 		// "Michael", "Doe", "3146053303", "mpaul1@outlook.com", "password", "2003
 		// Virginia Ave", "Saint Louis", "MO", "63104"
-//		Bank b1 = new Bank();
+		Bank b1 = new Bank();
 //		Bank b1=runcreate();
 //		System.out.println(b1);
 //		SaveorLoadBank.LoadBankFromFile();
+		ArrayList<Customer> customers = b1.getCustomers();
+		Customer c1 = customers.get(4);
+		Customer c2 = customers.get(5);
+		System.out.println(customers.get(4));
+		System.out.println(customers.get(5));
+		Account a1 = customers.get(4).getAccounts().get(0);
+		Account a2 = customers.get(5).getAccounts().get(0);
+		TransferManager.Transfer(c1, a1, c2, a2, (long) 100);
+		System.out.println(c1);
+		System.out.println(c2);
+//		b1.saveTofilePrintWriter();
 		
-//		ArrayList<Account> accounts = customer.getAccounts();
+		
+		
 
 	}
 

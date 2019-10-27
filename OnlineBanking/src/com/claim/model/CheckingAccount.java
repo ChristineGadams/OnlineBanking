@@ -10,6 +10,8 @@ public class CheckingAccount extends Account
 		this.accountBalance = accountBalance;
 		this.accountNumber = (Bank.accountNumberCounter);
 		Bank.accountNumberCounter=(this.accountNumber+1);
+
+
 	}
 	
 	public CheckingAccount(long accountBalance)
@@ -19,6 +21,7 @@ public class CheckingAccount extends Account
 		this.accountBalance = accountBalance;
 		this.accountNumber = (Bank.accountNumberCounter);
 		Bank.accountNumberCounter=(this.accountNumber+1);
+
 	}
 	public CheckingAccount(int accountNumber,long accountBalance)
 	{
@@ -27,6 +30,7 @@ public class CheckingAccount extends Account
 		this.accountBalance = accountBalance;
 		this.accountNumber = (accountNumber);
 		Bank.accountNumberCounter=(this.accountNumber+1);
+
 	}
 	
 	
@@ -49,5 +53,7 @@ public class CheckingAccount extends Account
 		return "Account:"+accountNumber+","+accountType+","+Long.toString(accountBalance);
 		
 	}
+
+
 
 }

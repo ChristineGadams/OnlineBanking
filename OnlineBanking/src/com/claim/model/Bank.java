@@ -95,18 +95,18 @@ public class Bank
 				for(String account:accounts)
 				{
 					if(account.isEmpty())
-						{
-						}
-					else 
-						{
-							String[] accountcomponents = account.split(",");
-							if (accountcomponents[1].equals("Checking"))
-								{
-									CheckingAccount caccount = new CheckingAccount(Integer.parseInt(accountcomponents[0]),Integer.parseInt(accountcomponents[2]));
-									if(Integer.parseInt(accountcomponents[0])>accountNumberCounter) {accountNumberCounter=Integer.parseInt(accountcomponents[0])+1;}
-									customer.addAccountToAccounts(caccount);
-								}
-						}
+					{
+					}
+				else 
+					{
+						String[] accountcomponents = account.split(",");
+						if (accountcomponents[1].equals("Checking"))
+							{
+								CheckingAccount caccount = new CheckingAccount(Integer.parseInt(accountcomponents[0]),Integer.parseInt(accountcomponents[2]));
+								if(Integer.parseInt(accountcomponents[0])>accountNumberCounter) {accountNumberCounter=Integer.parseInt(accountcomponents[0])+1;}
+								customer.addAccountToAccounts(caccount);
+							}
+					}
 				}
 				tempcustomers.add(customer);
 			}

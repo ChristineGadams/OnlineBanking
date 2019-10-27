@@ -2,15 +2,16 @@ package com.claim.model;
 
 public class TransferManager
 {
-	  public ITransferSource Source; 
-	  
-	  public ITransferDestination Destination; 
 	 
-	    public long Value;
-	 
-	    public void Transfer()
+	    
+	    public static void Transfer(Customer c, Account s, Customer c2, Account d, Long value)
 	    {
-	        Source.RemoveFunds(Value);
-	        Destination.AddFunds(Value);
+	    	Transaction t = new Transaction(c, s, c2, d, value);
+	        s.RemoveFunds(value);
+
+	        d.AddFunds(value);
+
 	    }
+
+	    
 }

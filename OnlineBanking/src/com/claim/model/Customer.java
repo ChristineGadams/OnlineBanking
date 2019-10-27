@@ -51,6 +51,7 @@ public class Customer extends Person
 		for(Account account:accounts)
 		{
 			stringAccounts += account.toString();
+			
 		}
 		return stringAccounts;
 	}

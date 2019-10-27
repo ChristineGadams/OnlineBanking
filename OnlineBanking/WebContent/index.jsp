@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+        <%@ page import="com.claim.model.*" %>
+    <%String invalidloginmsg = ""+session.getAttribute("invalidloginmsg");%>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -59,8 +61,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 				<li class=""><a href="blog.jsp">Blog</a></li>   -->
 				<li class=""><a href="contact.jsp">Contact</a></li>
 				<li class=""><a href="openaccount.jsp"><strong>Open New Account</strong></a></li>
-				<li class=""><a href="" class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
-<!--				<li class="last-grid"><a href="#">Call Now</a></li>
+				
+				 <li><button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#loginModal">Login</button>
+				 	  <% if(invalidloginmsg.equalsIgnoreCase("null")){} else{out.print("<div>");out.print(invalidloginmsg);out.print("</div>");}%>
+				 </li>
+				 
+<!--			<li class=""><a href="" class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
+				<li class="last-grid"><a href="#">Call Now</a></li>
 				<li>
                    <form class="navbar-form page-scroll form-inline" action="/LoginServlet" method="post">
 		                <div class="form-group">
@@ -81,7 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </header>
 <!-- //header -->
 
-<!-- Login Modal -->
+<!-- Login Modal 
 <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -114,6 +121,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 
 <!-- //Login Modal -->
+
+<!-- Modal 2 -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-title text-center">
+          <h4>Login</h4>
+        </div>
+        <div class="d-flex flex-column text-center">
+          <form action="LoginServlet" method="post">
+            <div class="form-group">
+              <input type="email" name="loginemail" class="form-control" id="email1"placeholder="Your email address...">
+            </div>
+            <div class="form-group">
+              <input type="password" name="loginpassword" class="form-control" id="password1" placeholder="Your password...">
+            </div>
+            <button type="submit" class="btn btn-info btn-block btn-round">Login</button>
+          </form>
+          
+<!--      <div class="text-center text-muted delimiter">or use a social network</div>
+          <div class="d-flex justify-content-center social-buttons">
+            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </button>
+            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Facebook">
+              <i class="fab fa-facebook"></i>
+            </button>
+            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Linkedin">
+              <i class="fab fa-linkedin"></i>
+            </button>
+          </div>  -->
+        </div>
+      </div>
+    </div>
+<!--  <div class="modal-footer d-flex justify-content-center">
+        <div class="signup-section">Not a member yet? <a href="#a" class="text-info"> Sign Up</a>.</div>
+      </div> -->
+  </div>
+</div>
+<!-- //Modal 2 -->
 
 <!-- banner -->
 <div class="banner" id="home">
@@ -592,7 +645,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</a>
 </div>
 <!-- move top -->
-
+<script src="js/modal.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

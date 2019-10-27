@@ -4,6 +4,8 @@ public abstract class Account implements ITransferSource, ITransferDestination
 {
 	public int accountNumberCounter=1;
 	int accountNumber = 0;
+	AccountType accountType;
+	long accountBalance = 0;
 	
 	public int getAccountNumberCounter()
 	{
@@ -20,5 +22,21 @@ public abstract class Account implements ITransferSource, ITransferDestination
 	public void setAccountNumber(int accountNumber)
 	{
 		this.accountNumber = accountNumber;
+	}
+	public AccountType getAccountType()
+	{
+		return accountType;
+	}
+	public void setAccountType(AccountType accountType)
+	{
+		this.accountType = accountType;
+	}
+	public long getAccountBalance()
+	{
+		return accountBalance;
+	}
+	public void setAccountBalance(long accountBalance)
+	{
+		this.accountBalance = accountBalance;
 	}
 }

@@ -1,6 +1,7 @@
 package com.claim.model;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import com.claim.controller.*;
 
@@ -18,6 +19,8 @@ public class Test
 //		Bank b1=runcreate();
 //		System.out.println(b1);
 //		SaveorLoadBank.LoadBankFromFile();
+		
+//		ArrayList<Account> accounts = customer.getAccounts();
 
 	}
 
@@ -47,6 +50,7 @@ public class Test
 		System.out.println(b1);
 		b1.saveTofilePrintWriter();
 		return b1;
+		
 	}
 	
 

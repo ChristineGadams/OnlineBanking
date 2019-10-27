@@ -1,8 +1,8 @@
 package com.claim.model;
 
-import java.util.*;
+import java.util.ArrayList;
 
-public class Customer extends Person
+public class Customer extends Person 
 {
 	ArrayList<Account> accounts;
 
@@ -61,6 +61,8 @@ public class Customer extends Person
 		return personid+","+firstName+","+lastName+","+telephoneNumber+","+email+","+password+","+address.toString()+","+PrintAccounts();
 		
 	}
+
+
 
 	
 	

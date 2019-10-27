@@ -4,7 +4,7 @@ public class TransferManager
 {
 	  public ITransferSource Source; 
 	  
-	    public ITransferDestination Destination; 
+	  public ITransferDestination Destination; 
 	 
 	    public long Value;
 	 

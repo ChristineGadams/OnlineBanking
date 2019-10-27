@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-        <%@ page import="com.claim.model.*" %>
     <%String invalidloginmsg = ""+session.getAttribute("invalidloginmsg");%>
 <!--
 author: W3layouts
@@ -63,7 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li class=""><a href="openaccount.jsp"><strong>Open New Account</strong></a></li>
 				
 				 <li><button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#loginModal">Login</button>
-				 	  <% if(invalidloginmsg.equalsIgnoreCase("null")){} else{out.print("<div>");out.print(invalidloginmsg);out.print("</div>");}%>
+				 	  <% if(invalidloginmsg.equalsIgnoreCase("Sorry your login failed, please try again.")){out.print("<div>");out.print(invalidloginmsg);out.print("</div>");}%>
 				 </li>
 				 
 <!--			<li class=""><a href="" class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>

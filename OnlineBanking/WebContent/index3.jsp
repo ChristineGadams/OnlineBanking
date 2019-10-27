@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="com.claim.model.*" %>
+    <% Customer customer = (Customer) session.getAttribute("customer"); %>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -48,32 +50,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- nav -->
 		<nav class="py-3 d-lg-flex">
 			<div id="logo">
-				<h1> <a href="index.jsp"><span class="fa fa-university"></span> Bank of Everyone </a></h1>
+<!-- 			<h1> <a href="index.jsp"><span class="fa fa-university"></span> Bank of Everyone </a></h1>-->
+				<h1><a href="index3.jsp"><span class="fa fa-university"><span> Bank of </span><% out.print(customer.getFirstName()); %></a></h1>
 			</div>
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
 			<ul class="menu ml-auto mt-1">
-				<li class="active"><a href="index.jsp">Home</a></li>
+				<li class="active"><a href="index3.jsp">Home</a></li>
 				<li class=""><a href="about.jsp">About</a></li>
 				<li class=""><a href="services.jsp">Services</a></li>
 <!-- 				<li class=""><a href="blog.jsp">Blog</a></li>   -->
 				<li class=""><a href="contact.jsp">Contact</a></li>
 				<li class=""><a href="openaccount.jsp"><strong>Open New Account</strong></a></li>
-				<li class=""><a href="" class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
-<!--				<li class="last-grid"><a href="#">Call Now</a></li>
-				<li>
-                   <form class="navbar-form page-scroll form-inline" action="/LoginServlet" method="post">
-		                <div class="form-group">
-		                  <input type="email" class="form-control" name="loginemail" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-		                  <div class="validation"></div>
-		                </div>
-		                <div class="form-group">
-		                  <input type="text" name="password" class="form-control" id="password" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-		                  <div class="validation"></div>
-		                </div>
-				      <button type="submit" class="btn btn-primary">Submit</button>
-				   </form>                  
-                  </li>-->
+				<li class="last-grid"><a href="#">Call Now</a></li>
 			</ul>
 		</nav>
 		<!-- //nav -->
@@ -81,39 +70,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </header>
 <!-- //header -->
 
-<!-- Login Modal -->
-<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign in to your Account</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="defaultForm-email" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
-        </div>
-
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="defaultForm-pass" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
-        </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-primary">Login</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- //Login Modal -->
 
 <!-- banner -->
 <div class="banner" id="home">

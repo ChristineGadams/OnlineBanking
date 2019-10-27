@@ -44,7 +44,7 @@ public class NewAccountServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		session.setAttribute("customer", customer);
 		
-		RequestDispatcher rs = request.getRequestDispatcher("index2.jsp");
+		RequestDispatcher rs = request.getRequestDispatcher("index3.jsp");
 		rs.forward(request,  response);
 		
 	}

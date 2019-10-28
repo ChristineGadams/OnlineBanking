@@ -1,6 +1,7 @@
 package com.claim.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,17 +32,26 @@ public class AccountServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Bank bank = new Bank();
 		HttpSession session = request.getSession(true);
 		int accountnumber = Integer.parseInt(request.getParameter("accountnumber"));
 		Customer customer = (Customer) session.getAttribute("customer");
 		Account bankaccount = null;
+		ArrayList<Transaction> accounttransactions=null;
 		for(Account account:customer.getAccounts()){
     		if(accountnumber==account.getAccountNumber()){
     			bankaccount = account;
     		}
     	}
+//		for(Transaction t:bank.getTransactions()) {
+//			if(bankaccount.getAccountNumber()==t.getFromAccount().getAccountNumber()||bankaccount.getAccountNumber()==t.getToAccount().getAccountNumber()) {
+//				accounttransactions.add(t);
+//			}
+//		}
+		
 		session.setAttribute("customer", customer);
 		session.setAttribute("bankaccount", bankaccount);
+//		session.setAttribute("transactions", accounttransactions);
 		RequestDispatcher rs = request.getRequestDispatcher("account.jsp");
 		rs.forward(request,  response);
 		

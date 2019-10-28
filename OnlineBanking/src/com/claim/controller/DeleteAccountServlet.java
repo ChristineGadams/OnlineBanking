@@ -59,6 +59,7 @@ public class DeleteAccountServlet extends HttpServlet {
 			}
 			bank.saveTofilePrintWriter();
 			session.removeAttribute("accountnumber");
+			session.removeAttribute("transactions");
 			session.setAttribute("customer", customer);
 			RequestDispatcher rs = request.getRequestDispatcher("index3.jsp");
 			rs.forward(request,  response);
@@ -75,6 +76,7 @@ public class DeleteAccountServlet extends HttpServlet {
 			session.removeAttribute("accountnumber");
 			session.removeAttribute("customer");
 			session.removeAttribute("invalidloginmsg");
+			session.removeAttribute("transactions");
 			RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
 			rs.forward(request,  response);
 		}

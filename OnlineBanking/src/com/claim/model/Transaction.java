@@ -1,16 +1,21 @@
 package com.claim.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Transaction
 {
-
-	Date transactiondate = new Date();
-	Customer toCustomer;
-	Account toAccount;
-	Customer fromCustomer;
-	Account fromAccount;
-	long amount;
+	private SimpleDateFormat f=new SimpleDateFormat("MMM dd yyyy HH:mm:ss");
+	private Date transactiondate = new Date();
+	private Customer toCustomer;
+	private Account toAccount;
+	private Customer fromCustomer;
+	private Account fromAccount;
+	private long amount;
+	
+	public Transaction() {
+		
+	}
 	
 	public Transaction(Customer toCustomer, Account toAccount, Customer fromCustomer,
 			Account fromAccount, long amount)
@@ -97,7 +102,7 @@ public class Transaction
 	@Override
 	public String toString()
 	{
-		return "Transaction:"+transactiondate+","+toCustomer.getPersonid()+","+toAccount.getAccountNumber()+","+fromCustomer.getPersonid()+","+fromAccount.getAccountNumber()+","+amount;
+		return f.format(transactiondate)+","+toCustomer.getPersonid()+","+toAccount.getAccountNumber()+","+fromCustomer.getPersonid()+","+fromAccount.getAccountNumber()+","+amount;
 		
 	}
 	

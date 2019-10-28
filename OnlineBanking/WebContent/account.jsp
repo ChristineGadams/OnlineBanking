@@ -3,6 +3,7 @@
     <%@ page import="com.claim.model.*" %>
     <% Customer customer = (Customer) session.getAttribute("customer"); %>
     <% Account bankaccount = (Account) session.getAttribute("bankaccount"); %>
+    <% Transaction transactions = (Transaction) session.getAttribute("transactions"); %>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -113,8 +114,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#loginModal">DeleteAccount</button>
 			</div>
 			<div class="col-lg-4 col-md-6"><h4 class="mb-4 w3f_title">Account Type: $  <%out.print(bankaccount.getAccountBalance()); %> </h4></div>
-			
 		</div>
+	</div>
+</section>
+<hr>
+<section class="contact py-5">
+	<div class="container py-lg-5">
+		<h3 class="heading mb-sm-5 mb-4">Account Transaction Details</h3>
 	</div>
 </section>
 

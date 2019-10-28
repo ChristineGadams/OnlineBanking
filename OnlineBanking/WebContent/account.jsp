@@ -107,20 +107,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //breadcrumb -->
 
 <!-- content -->
-<section class="contact py-5">
+<section class="container">
 	<div class="container py-lg-5">
 		<h2 class="heading mb-sm-5 mb-4">Your Account Details</h2>
 		<div class="row">
 			<div class="col-lg-4 col-md-6"><h4 class="mb-4 w3f_title">Account Type: <%out.print(bankaccount.getAccountType()); %> </h4></div>
 			<div class="col-lg-4 col-md-6"><h4 class="mb-4 w3f_title">Account Number: <%out.print(bankaccount.getAccountNumber()); %> </h4>
-				<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#loginModal">DeleteAccount</button>
 			</div>
 			<div class="col-lg-4 col-md-6"><h4 class="mb-4 w3f_title">Account Type: $  <%out.print(bankaccount.getAccountBalance()); %> </h4></div>
+			<div class="col-lg-4 col-md-6">
+				<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#makeDepositModal">Make Deposit</button>
+				<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#DeleteAccountModal">Delete Account</button>
+			</div>
 		</div>
 	</div>
 </section>
 <hr>
-<section class="contact py-5">
+<section class="container">
 	<div class="container py-lg-5">
 		<h3 class="heading mb-sm-5 mb-4">Account Transaction Details</h3>
 	</div>
@@ -132,7 +135,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    </tr>
 		  </thead>
 		  <tbody>
-			<% for(Transaction t:transactions){
+			<% 
+			for(Transaction t:transactions){
 				out.print("<tr><td>"+t.getTransactiondate()+"</td>"
 			+"<td>"+t.getToCustomer().getFullName()+"</td>"
 			+"<td>"+t.getToAccount().getAccountNumber()+"</td>"
@@ -152,8 +156,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- //content -->
 
-<!-- Modal 2 -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Make Deposit Modal -->
+<div class="modal fade" id="makeDepositModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-title text-center">
+          <h4>Make A Depost</h4>
+        </div>
+        <div class="d-flex flex-column text-center">
+          <form action="MakeDepositServlet" method="post">
+            <div class="form-group">
+            <label for="accountnumber">Account Number</label>
+              <input type="text" name="accountnumber" class="form-control" id="accountnumber" value=<%out.print(bankaccount.getAccountNumber());%> readonly>
+            </div>
+            <div><label for="initialdeposit">Deposit Amount</label></div>
+            <div class="form-group input-group mb-3">	
+				 <div class="input-group-prepend">
+				   <span class="input-group-text">$</span>
+				 </div>
+				 <input type="text" class="form-control" name="deposit" id="deposit" placeholder="Your Deposit Amount" data-rule="minlen:1" data-msg="Please enter at least 1 chars" aria-label="Amount (to the nearest dollar)">
+			 	 <div class="input-group-append">
+				   <span class="input-group-text">.00</span>
+				 </div>
+				 <div class="validation"></div>
+			</div>
+            <button type="submit" class="btn btn-info btn-block btn-round">Are you sure?</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //Make Deposit Modal -->
+
+<!-- Delete Account Modal -->
+<div class="modal fade" id="DeleteAccountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">
@@ -177,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
   </div>
 </div>
-<!-- //Modal 2 -->
+<!-- //Delete Account Modal -->
 
 <!-- footer -->
 <footer class="footer py-5">

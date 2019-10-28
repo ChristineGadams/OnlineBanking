@@ -128,12 +128,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  <table class="table">
 		    <thead>
 		    <tr>
-		      <th scope="col">Transaction Date</th><th scope="col">To Customer</th><th scope="col">To Account</th><th scope="col">From Customer</th><th scope="col">From Account/th><th scope="col">Amount</th>
+		      <th scope="col">Transaction Date</th><th scope="col">To Customer</th><th scope="col">To Account</th><th scope="col">From Customer</th><th scope="col">From Account</th><th scope="col">Amount</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 			<% for(Transaction t:transactions){
-				out.print("<td>"+t.getTransactiondate()+"</td>");
+				out.print("<tr><td>"+t.getTransactiondate()+"</td>"
+			+"<td>"+t.getToCustomer().getFullName()+"</td>"
+			+"<td>"+t.getToAccount().getAccountNumber()+"</td>"
+			+"<td>"+t.getFromCustomer().getFullName()+"</td>"
+			+"<td>"+t.getFromAccount().getAccountNumber()+"</td>"
+			+"<td>"+t.getAmount()+"</td>"
+			+"</tr>");
 			}
 			
 			%>

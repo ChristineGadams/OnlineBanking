@@ -6,7 +6,7 @@ import java.util.Date;
 public class Transaction
 {
 	private SimpleDateFormat f=new SimpleDateFormat("MMM dd yyyy HH:mm:ss");
-	private Date transactiondate = new Date();
+	private Date transactiondate;
 	private Customer toCustomer;
 	private Account toAccount;
 	private Customer fromCustomer;
@@ -26,6 +26,7 @@ public class Transaction
 		this.fromCustomer = fromCustomer;
 		this.fromAccount = fromAccount;
 		this.amount = amount;
+		this.transactiondate = new Date();
 	}
 	
 	public Transaction(Date date, Customer toCustomer, Account toAccount, Customer fromCustomer,
@@ -37,6 +38,7 @@ public class Transaction
 		this.fromCustomer = fromCustomer;
 		this.fromAccount = fromAccount;
 		this.amount = amount;
+		this.transactiondate=date;
 	}
 
 	public Date getTransactiondate()

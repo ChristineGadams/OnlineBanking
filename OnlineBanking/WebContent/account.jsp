@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
     <%@ page import="com.claim.model.*" %>
+    <%@ page import="java.util.*" %>
     <% Customer customer = (Customer) session.getAttribute("customer"); %>
     <% Account bankaccount = (Account) session.getAttribute("bankaccount"); %>
-    <% Transaction transactions = (Transaction) session.getAttribute("transactions"); %>
+    <% ArrayList<Transaction> transactions = (ArrayList<Transaction>)session.getAttribute("accounttransactions"); %>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -122,6 +124,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container py-lg-5">
 		<h3 class="heading mb-sm-5 mb-4">Account Transaction Details</h3>
 	</div>
+		<div class="table-responsive">
+		  <table class="table">
+		    <thead>
+		    <tr>
+		      <th scope="col">Transaction Date</th><th scope="col">To Customer</th><th scope="col">To Account</th><th scope="col">From Customer</th><th scope="col">From Account/th><th scope="col">Amount</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+			<% for(Transaction t:transactions){
+				out.print("<td>"+t.getTransactiondate()+"</td>");
+			}
+			
+			%>
+
+		
+		  </tbody>
+		 </table>
+		 </div>
 </section>
 
 <!-- //content -->

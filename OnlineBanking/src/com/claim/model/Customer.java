@@ -45,6 +45,10 @@ public class Customer extends Person
 		accounts.add(account);
 	}
 	
+	public String getFullName() {
+		return firstName+" "+lastName;
+	}
+	
 	public String PrintAccounts()
 	{
 		String stringAccounts=":AccountsSplit:";

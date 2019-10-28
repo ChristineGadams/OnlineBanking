@@ -37,21 +37,21 @@ public class AccountServlet extends HttpServlet {
 		int accountnumber = Integer.parseInt(request.getParameter("accountnumber"));
 		Customer customer = (Customer) session.getAttribute("customer");
 		Account bankaccount = null;
-		ArrayList<Transaction> accounttransactions=null;
+		ArrayList<Transaction> accounttransactions=new ArrayList<Transaction>();
 		for(Account account:customer.getAccounts()){
     		if(accountnumber==account.getAccountNumber()){
     			bankaccount = account;
     		}
     	}
-//		for(Transaction t:bank.getTransactions()) {
-//			if(bankaccount.getAccountNumber()==t.getFromAccount().getAccountNumber()||bankaccount.getAccountNumber()==t.getToAccount().getAccountNumber()) {
-//				accounttransactions.add(t);
-//			}
-//		}
+		for(Transaction t:bank.getTransactions()) {
+			if(bankaccount.getAccountNumber()==t.getFromAccount().getAccountNumber()||bankaccount.getAccountNumber()==t.getToAccount().getAccountNumber()) {
+				accounttransactions.add(t);
+			}
+		}
 		
 		session.setAttribute("customer", customer);
 		session.setAttribute("bankaccount", bankaccount);
-//		session.setAttribute("transactions", accounttransactions);
+		session.setAttribute("accounttransactions", accounttransactions);
 		RequestDispatcher rs = request.getRequestDispatcher("account.jsp");
 		rs.forward(request,  response);
 		

@@ -150,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			  	</form>
 		  </div>
 		  <div class="tab-pane fade" id="transfer2" role="tabpanel" aria-labelledby="transfer2-tab"> 
-		  <form action="InternalTransferServlet" method="post">
+		  <form action="TransferToCustomerServlet" method="post">
 			  		<h4 class="container mb-sm-5 mb-2">Transfer From Your Account to Another Bank Customer</h4>
 			  		<div><span>From your account: </span><% out.print(bankaccount.getAccountNumber());%><span> | Balance: $ <% out.print(bankaccount.getAccountBalance());%></span></div>
 			  		<div>
@@ -160,12 +160,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<%for(Customer tocustomer:customers){out.print("<option>"+tocustomer.getFullName()+"</option>");} %>
 					  </select>
 					</div>
-			  		<div class="form-group">
-					  <label for="sel1">To Customer account:</label>
-					  <select class="form-control" name="transferToAccount" id="sel1">
-						<%for(Account account:customer.getAccounts()){if(account.getAccountNumber()!=bankaccount.getAccountNumber()){out.print("<option>"+account.getAccountNumber()+"</option>");}} %>
-					  </select>
-					</div>
+<!-- remove select customer account, defaulting to first account in a customer -->
 			  		</div>
 			  		<div><label for="initialdeposit">Trasnfer Amount</label></div>
 		            <div class="form-group input-group mb-3">	

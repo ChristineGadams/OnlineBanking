@@ -6,11 +6,11 @@ public class TransferManager
 {
 	 
 	    
-	    public static void Transfer(Customer c, Account s, Customer c2, Account d, Long value)
+	    public static void Transfer(Bank bank, Customer c, Account s, Customer c2, Account d, Long value)
 	    {
 	    	Transaction t = new Transaction(c, s, c2, d, value);
 	        s.RemoveFunds(value);
-//	        Bank.AddTransactionToBank(t);
+	        bank.AddTransactionToBank(t);
 	        d.AddFunds(value);
 //	        try
 //			{

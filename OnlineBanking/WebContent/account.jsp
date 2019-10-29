@@ -115,9 +115,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-lg-4 col-md-6"><h4 class="mb-4 w3f_title">Account Number: <%out.print(bankaccount.getAccountNumber()); %> </h4>
 			</div>
 			<div class="col-lg-4 col-md-6"><h4 class="mb-4 w3f_title">Account Type: $  <%out.print(bankaccount.getAccountBalance()); %> </h4></div>
-			<div class="col-lg-4 col-md-6">
+			<div class="col-lg-12 col-md-8">
 				<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#makeDepositModal">Make Deposit</button>
-				<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#DeleteAccountModal">Delete Account</button>
+				<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#withdrawalModal">Withdrawal</button>
+				<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#DeleteAccountModal">Close Account</button>
 			</div>
 		</div>
 	</div>
@@ -131,11 +132,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  <table class="table">
 		    <thead>
 		    <tr>
-		      <th scope="col">Transaction Date</th><th scope="col">To Customer</th><th scope="col">To Account</th><th scope="col">From Customer</th><th scope="col">From Account</th><th scope="col">Amount</th>
+		      <th scope="col">Transaction Date</th><th scope="col">From</th><th scope="col">Account</th><th scope="col">To Customer</th><th scope="col">To Account</th><th scope="col">Amount</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-			<% 
+			<% String tamount="";
 			for(Transaction t:transactions){
 				out.print("<tr><td>"+t.getTransactiondate()+"</td>"
 			+"<td>"+t.getToCustomer().getFullName()+"</td>"
@@ -186,7 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 </div>
 				 <div class="validation"></div>
 			</div>
-            <button type="submit" class="btn btn-info btn-block btn-round">Are you sure?</button>
+            <button type="submit" class="btn btn-info btn-block btn-round">Make Deposit</button>
           </form>
         </div>
       </div>
@@ -194,6 +195,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </div>
 </div>
 <!-- //Make Deposit Modal -->
+
+<!-- Withdrawal Modal -->
+<div class="modal fade" id="withdrawalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-title text-center">
+          <h4>Withdraw Cash</h4>
+        </div>
+        <div class="d-flex flex-column text-center">
+          <form action="WithdrawalServlet" method="post">
+            <div class="form-group">
+            <label for="accountnumber">Account Number</label>
+              <input type="text" name="accountnumber" class="form-control" id="accountnumber" value=<%out.print(bankaccount.getAccountNumber());%> readonly>
+            </div>
+            <div><label for="initialdeposit">Cash Amount</label></div>
+            <div class="form-group input-group mb-3">	
+				 <div class="input-group-prepend">
+				   <span class="input-group-text">$</span>
+				 </div>
+				 <input type="text" class="form-control" name="deposit" id="deposit" placeholder="Your Deposit Amount" data-rule="minlen:1" data-msg="Please enter at least 1 chars" aria-label="Amount (to the nearest dollar)">
+			 	 <div class="input-group-append">
+				   <span class="input-group-text">.00</span>
+				 </div>
+				 <div class="validation"></div>
+			</div>
+            <button type="submit" class="btn btn-info btn-block btn-round">Withdraw Cash</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //Withdrawal Modal -->
+
 
 <!-- Delete Account Modal -->
 <div class="modal fade" id="DeleteAccountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

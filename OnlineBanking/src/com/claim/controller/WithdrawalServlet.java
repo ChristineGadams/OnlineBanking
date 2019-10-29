@@ -18,16 +18,16 @@ import com.claim.model.Transaction;
 import com.claim.model.TransferManager;
 
 /**
- * Servlet implementation class MakeDepositServlet
+ * Servlet implementation class WithdrawalServlet
  */
-@WebServlet("/MakeDepositServlet")
-public class MakeDepositServlet extends HttpServlet {
+@WebServlet("/WithdrawalServlet")
+public class WithdrawalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MakeDepositServlet() {
+    public WithdrawalServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -59,7 +59,7 @@ public class MakeDepositServlet extends HttpServlet {
 		
 		
 		long amount = Long.parseLong(request.getParameter("deposit"));
-		TransferManager.Transfer(bank,bank.getCustomers().get(0), bank.getCustomers().get(0).getAccounts().get(0), customer, account, amount);
+		TransferManager.Transfer(bank, customer, account, bank.getCustomers().get(1), bank.getCustomers().get(1).getAccounts().get(0), amount);
 		
 		ArrayList<Transaction> accounttransactions=new ArrayList<Transaction>();
 		for(Transaction t:bank.getTransactions()) {

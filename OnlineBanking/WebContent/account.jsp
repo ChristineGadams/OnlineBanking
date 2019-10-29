@@ -136,14 +136,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    </tr>
 		  </thead>
 		  <tbody>
-			<% String tamount="";
+			<% 
 			for(Transaction t:transactions){
+				long tamount=0;
+				if(t.getFromAccount().getAccountNumber()==2){tamount = -t.getAmount();}else{tamount = t.getAmount();}
 				out.print("<tr><td>"+t.getTransactiondate()+"</td>"
 			+"<td>"+t.getToCustomer().getFullName()+"</td>"
 			+"<td>"+t.getToAccount().getAccountNumber()+"</td>"
 			+"<td>"+t.getFromCustomer().getFullName()+"</td>"
 			+"<td>"+t.getFromAccount().getAccountNumber()+"</td>"
-			+"<td>"+t.getAmount()+"</td>"
+			+"<td>"+tamount+"</td>"
 			+"</tr>");
 			}
 			

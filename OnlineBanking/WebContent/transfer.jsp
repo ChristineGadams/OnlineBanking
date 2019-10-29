@@ -162,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 <!-- remove select customer account, defaulting to first account in a customer -->
 			  		</div>
-			  		<div><label for="initialdeposit">Trasnfer Amount</label></div>
+			  		<div><label for="transferamount">Transfer Amount</label></div>
 		            <div class="form-group input-group mb-3">	
 						 <div class="input-group-prepend">
 						   <span class="input-group-text">$</span>
@@ -179,12 +179,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  
 		  </div>
 		  <div class="tab-pane fade" id="transfer3" role="tabpanel" aria-labelledby="transfer3-tab">
-		  ...
-		  
+		  	<form action="TransferToExternalCustomerServlet" method="post">
+			  		<h4 class="container mb-sm-5 mb-2">Transfer From Your Account to Another Bank</h4>
+			  		<div><span>From your account: </span><% out.print(bankaccount.getAccountNumber());%><span> | Balance: $ <% out.print(bankaccount.getAccountBalance());%></span></div>
+			  		<div>
+					  	<div class="form-group">
+							<label for="ToExternalRouter">External Customer Routing Code</label>
+		                  	<input type="text" class="form-control" name="ToExternalRouter" id="ToExternalRouter" placeholder="Routing Code for External Customer's Account" data-rule="minlen:10" data-msg="Please enter at least 5 chars" />
+		                 	<div class="validation"></div>
+		                </div>
+						<div class="form-group">
+							<label for="ToExternalRouter">External Customer Account Number</label>
+		                  	<input type="text" class="form-control" name="ToExternalNumber" id="ToExternalRouter" placeholder="Account Number for External Customer's Account" data-rule="minlen:10" data-msg="Please enter at least 5 chars" />
+		                 	<div class="validation"></div>
+		                </div>
+
+			  		</div>
+			  		<div><label for="transferamount">Transfer Amount</label></div>
+		            <div class="form-group input-group mb-3">	
+						 <div class="input-group-prepend">
+						   <span class="input-group-text">$</span>
+						 </div>
+						 <input type="text" class="form-control" name="transferamount" id="transferamount" placeholder="Amount to Transfer" data-rule="minlen:1" data-msg="Please enter at least 1 chars" aria-label="Amount (to the nearest dollar)">
+					 	 <div class="input-group-append">
+						   <span class="input-group-text">.00</span>
+						 </div>
+						 <div class="validation"></div>
+					</div>
+		            <button type="submit" class="btn btn-info btn-block btn-round">Transfer Funds</button>
+			</form>
 		  
 		  </div>
 		</div>
-	</div>
+
 </section>
 
 <!-- //Content -->

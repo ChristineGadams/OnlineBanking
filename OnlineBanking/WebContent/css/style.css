@@ -141,6 +141,7 @@ nav a {
     font-size: 15px;
     vertical-align: middle;
 }
+
 nav li.last-grid a {
     background: none;
     border: 2px solid #ffc168;
@@ -2004,6 +2005,12 @@ a.move-top span{
   padding: 2rem 0rem;
 }
 
+.container2 {
+  padding: 2rem 0rem;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 @media (min-width: 576px){
   .modal-dialog {
     max-width: 400px;
@@ -2042,3 +2049,15 @@ a.move-top span{
   padding: 0.3rem 0rem;
 }
 /*-- //added for modal --*/
+
+#transferbutton {
+    color: #ddd;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    padding-left: 0;
+    padding-right: 0;
+    padding: 10px 13px;
+    font-weight: 400;
+    font-size: 15px;
+    vertical-align: middle;
+}

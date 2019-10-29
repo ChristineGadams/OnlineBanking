@@ -6,6 +6,7 @@
     <% Customer customer = (Customer) session.getAttribute("customer"); %>
     <% Account bankaccount = (Account) session.getAttribute("bankaccount"); %>
     <% ArrayList<Transaction> transactions = (ArrayList<Transaction>)session.getAttribute("accounttransactions"); %>
+    <% ArrayList<Customer> customers = (ArrayList<Customer>)session.getAttribute("customers"); %>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -99,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<li class="breadcrumb-item">
 				<a href="index3.jsp">Home</a>
 			</li>
-			<li class="breadcrumb-item" aria-current="page">Account Detail</li>
+			<li class="breadcrumb-item" aria-current="page">Transfer</li>
 		</ol>
 	</nav>
 	</div>
@@ -107,220 +108,91 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //breadcrumb -->
 
 <!-- content -->
-
-
-<section class="container py-1">
-	<div class="container2 py-lg-1">
-		<h3 class="container2 mb-sm-1 mb-1">Your Account Details</h3>
-		<div class="row">
-			<div class="col-lg-4 col-md-6 py-1"><h5 class="w3f_title my-1">Account Type: <%out.print(bankaccount.getAccountType()); %> </h5></div>
-			<div class="col-lg-4 col-md-6 py-1"><h5 class="w3f_title my-1">Account Number: <%out.print(bankaccount.getAccountNumber()); %> </h5>
-			</div>
-			<div class="col-lg-4 col-md-6 py-1"><h5 class="w3f_title my-1">Account Type: $  <%out.print(bankaccount.getAccountBalance()); %> </h5></div>
-			
+<section class="container py-2">
+	<div class="container py-lg-1">
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+		  <li class="nav-item">
+		    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#transfer1" role="tab" aria-controls="home" aria-selected="true">Transfer Between Your Accounts</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#transfer2" role="tab" aria-controls="profile" aria-selected="false">Transfer to Another Bank Customer</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#transfer3" role="tab" aria-controls="contact" aria-selected="false">Transfer Outside to a Customer at Another Bank</a>
+		  </li>
+		</ul>
+		
+		<div class="tab-content" id="myTabContent">
+		  <div class="tab-pane fade show active" id="transfer1" role="tabpanel" aria-labelledby="transfer1-tab">
+		  		<form action="SelfTransferServlet" method="post">
+			  		<h4 class="container mb-sm-5 mb-2">Transfer Between Your Accounts</h4>
+			  		<div><span>From your account: </span><% out.print(bankaccount.getAccountNumber());%><span> | Balance: $ <% out.print(bankaccount.getAccountBalance());%></span></div>
+			  		<div>
+			  		<div class="form-group">
+					  <label for="sel1">To your account:</label>
+					  <select class="form-control" name="transferToAccount" id="sel1">
+						<%for(Account account:customer.getAccounts()){if(account.getAccountNumber()!=bankaccount.getAccountNumber()){out.print("<option>"+account.getAccountNumber()+"</option>");}} %>
+					  </select>
+					</div>
+			  		</div>
+			  		<div><label for="initialdeposit">Trasnfer Amount</label></div>
+		            <div class="form-group input-group mb-3">	
+						 <div class="input-group-prepend">
+						   <span class="input-group-text">$</span>
+						 </div>
+						 <input type="text" class="form-control" name="transferamount" id="transferamount" placeholder="Amount to Transfer" data-rule="minlen:1" data-msg="Please enter at least 1 chars" aria-label="Amount (to the nearest dollar)">
+					 	 <div class="input-group-append">
+						   <span class="input-group-text">.00</span>
+						 </div>
+						 <div class="validation"></div>
+					</div>
+		            <button type="submit" class="btn btn-info btn-block btn-round">Transfer Funds</button>
+			  	</form>
+		  </div>
+		  <div class="tab-pane fade" id="transfer2" role="tabpanel" aria-labelledby="transfer2-tab"> 
+		  <form action="InternalTransferServlet" method="post">
+			  		<h4 class="container mb-sm-5 mb-2">Transfer From Your Account to Another Bank Customer</h4>
+			  		<div><span>From your account: </span><% out.print(bankaccount.getAccountNumber());%><span> | Balance: $ <% out.print(bankaccount.getAccountBalance());%></span></div>
+			  		<div>
+			  		<div class="form-group">
+					  <label for="sel1">To Customer:</label>
+					  <select class="form-control" name="transferToCustomer" id="sel2">
+						<%for(Customer tocustomer:customers){out.print("<option>"+tocustomer.getFullName()+"</option>");} %>
+					  </select>
+					</div>
+			  		<div class="form-group">
+					  <label for="sel1">To Customer account:</label>
+					  <select class="form-control" name="transferToAccount" id="sel1">
+						<%for(Account account:customer.getAccounts()){if(account.getAccountNumber()!=bankaccount.getAccountNumber()){out.print("<option>"+account.getAccountNumber()+"</option>");}} %>
+					  </select>
+					</div>
+			  		</div>
+			  		<div><label for="initialdeposit">Trasnfer Amount</label></div>
+		            <div class="form-group input-group mb-3">	
+						 <div class="input-group-prepend">
+						   <span class="input-group-text">$</span>
+						 </div>
+						 <input type="text" class="form-control" name="transferamount" id="transferamount" placeholder="Amount to Transfer" data-rule="minlen:1" data-msg="Please enter at least 1 chars" aria-label="Amount (to the nearest dollar)">
+					 	 <div class="input-group-append">
+						   <span class="input-group-text">.00</span>
+						 </div>
+						 <div class="validation"></div>
+					</div>
+		            <button type="submit" class="btn btn-info btn-block btn-round">Transfer Funds</button>
+			  	</form>
+		  
+		  
+		  </div>
+		  <div class="tab-pane fade" id="transfer3" role="tabpanel" aria-labelledby="transfer3-tab">
+		  ...
+		  
+		  
+		  </div>
 		</div>
 	</div>
 </section>
 
-<!-- Action Buttons 
-<section class="container py-1">
-	<div class="container2 py-lg-1">	
-	<div class="col-lg-12 col-md-8">
-					<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#makeDepositModal">Make Deposit</button>
-					<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#withdrawalModal">Withdrawal</button>
-					<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#withdrawalModal">Transfer</button>
-					<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#DeleteAccountModal">Close Account</button>
-	</div>
-	</div>
-</section>	
-<!-- //Action Buttons -->
-
-<!-- Nav  -->
-
-		<!-- nav 
-		<nav class="py-3 d-lg-flex">
-			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
-			<input type="checkbox" id="drop" />
-			<ul class="menu ml-auto mt-1">
-				<li><button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#makeDepositModal">Make Deposit</button></li>
-
-<!--				<li class=""><a href="services.jsp">Services</a></li>
- 				<li class=""><a href="blog.jsp">Blog</a></li>  
-				<li class=""><a href="contact.jsp">Contact</a></li>
-				<li class=""><a href="openaccount.jsp"><strong>Open New Account</strong></a></li>
-				<li class="last-grid"><a href="#">Call Now</a></li> -->
-<!-- 			</ul>
-		</nav>
-		<!-- //nav -->
-<section class="container">
-<nav class="navbar navbar-expand-lg mx-md-auto navbar-light">
-<!--   <a class="navbar-brand" href="#">Navbar</a> -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav1">
-    <ul class="navbar-nav mx-md-auto">
-      <li class="nav-item active mx-1">
-        <button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#makeDepositModal">Make Deposit</button>
-      </li>
-      <li class="nav-item mx-1">
-       <button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#withdrawalModal">Withdrawal</button>
-      </li>
-      <li class="nav-item mx-1">
-      	<a href="transfer" class="btn btn-info btn-round" role="button" id="transferbutton">Transfer</a>
-      </li>
-      <li class="nav-item mx-1">
-        <button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#DeleteAccountModal">Close Account</button>
-      </li>
-    </ul>
-  </div>
-</nav>	
-</section>
-	
-
-
-<!-- //Nav  -->
-<hr>
-<section class="container py-2">
-	<div class="container py-lg-1">
-		<h4 class="container mb-sm-5 mb-2">Account Transaction Details</h4>
-	</div>
-		<div class="table-responsive">
-		  <table class="table">
-		    <thead>
-		    <tr>
-		      <th scope="col">Transaction Date</th><th scope="col">From</th><th scope="col">Account</th><th scope="col">To Customer</th><th scope="col">To Account</th><th scope="col">Amount</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-			<% 
-			for(Transaction t:transactions){
-				long tamount=0;
-				if(t.getFromAccount().getAccountNumber()==2||t.getToAccount().getAccountNumber()==bankaccount.getAccountNumber()){tamount = -t.getAmount();}else{tamount = t.getAmount();}
-				out.print("<tr><td>"+t.getTransactiondate()+"</td>"
-			+"<td>"+t.getToCustomer().getFullName()+"</td>"
-			+"<td>"+t.getToAccount().getAccountNumber()+"</td>"
-			+"<td>"+t.getFromCustomer().getFullName()+"</td>"
-			+"<td>"+t.getFromAccount().getAccountNumber()+"</td>"
-			+"<td>"+tamount+"</td>"
-			+"</tr>");
-			}
-			
-			%>
-
-		
-		  </tbody>
-		 </table>
-		 </div>
-</section>
-
-<!-- //content -->
-
-<!-- Make Deposit Modal -->
-<div class="modal fade" id="makeDepositModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header border-bottom-0">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-title text-center">
-          <h4>Make A Depost</h4>
-        </div>
-        <div class="d-flex flex-column text-center">
-          <form action="MakeDepositServlet" method="post">
-            <div class="form-group">
-            <label for="accountnumber">Account Number</label>
-              <input type="text" name="accountnumber" class="form-control" id="accountnumber" value=<%out.print(bankaccount.getAccountNumber());%> readonly>
-            </div>
-            <div><label for="initialdeposit">Deposit Amount</label></div>
-            <div class="form-group input-group mb-3">	
-				 <div class="input-group-prepend">
-				   <span class="input-group-text">$</span>
-				 </div>
-				 <input type="text" class="form-control" name="deposit" id="deposit" placeholder="Your Deposit Amount" data-rule="minlen:1" data-msg="Please enter at least 1 chars" aria-label="Amount (to the nearest dollar)">
-			 	 <div class="input-group-append">
-				   <span class="input-group-text">.00</span>
-				 </div>
-				 <div class="validation"></div>
-			</div>
-            <button type="submit" class="btn btn-info btn-block btn-round">Make Deposit</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- //Make Deposit Modal -->
-
-<!-- Withdrawal Modal -->
-<div class="modal fade" id="withdrawalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header border-bottom-0">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-title text-center">
-          <h4>Withdraw Cash</h4>
-        </div>
-        <div class="d-flex flex-column text-center">
-          <form action="WithdrawalServlet" method="post">
-            <div class="form-group">
-            <label for="accountnumber">Account Number</label>
-              <input type="text" name="accountnumber" class="form-control" id="accountnumber" value=<%out.print(bankaccount.getAccountNumber());%> readonly>
-            </div>
-            <div><label for="initialdeposit">Cash Amount</label></div>
-            <div class="form-group input-group mb-3">	
-				 <div class="input-group-prepend">
-				   <span class="input-group-text">$</span>
-				 </div>
-				 <input type="text" class="form-control" name="deposit" id="deposit" placeholder="Your Deposit Amount" data-rule="minlen:1" data-msg="Please enter at least 1 chars" aria-label="Amount (to the nearest dollar)">
-			 	 <div class="input-group-append">
-				   <span class="input-group-text">.00</span>
-				 </div>
-				 <div class="validation"></div>
-			</div>
-            <button type="submit" class="btn btn-info btn-block btn-round">Withdraw Cash</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- //Withdrawal Modal -->
-
-
-<!-- Delete Account Modal -->
-<div class="modal fade" id="DeleteAccountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header border-bottom-0">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-title text-center">
-          <h4>Close/Delete Bank Account</h4>
-        </div>
-        <div class="d-flex flex-column text-center">
-          <form action="DeleteAccountServlet" method="post">
-            <div class="form-group">
-              <input type="text" name="accountnumber" class="form-control" id="accountnumber" value=<%out.print(bankaccount.getAccountNumber());%> readonly>
-            </div>
-            <button type="submit" class="btn btn-info btn-block btn-round">Are you sure?</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- //Delete Account Modal -->
+<!-- //Content -->
 
 <!-- footer -->
 <footer class="footer py-5">

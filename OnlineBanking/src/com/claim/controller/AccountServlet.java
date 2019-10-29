@@ -34,21 +34,33 @@ public class AccountServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Bank bank = new Bank();
 		HttpSession session = request.getSession(true);
+		if(session.getAttribute("bankaccount")!=null) {}session.removeAttribute("bankaccount");
 		int accountnumber = Integer.parseInt(request.getParameter("accountnumber"));
 		Customer customer = (Customer) session.getAttribute("customer");
+		
 		Account bankaccount = null;
-		ArrayList<Transaction> accounttransactions=new ArrayList<Transaction>();
 		for(Account account:customer.getAccounts()){
     		if(accountnumber==account.getAccountNumber()){
     			bankaccount = account;
     		}
     	}
+		
+		ArrayList<Transaction> accounttransactions=new ArrayList<Transaction>();
 		for(Transaction t:bank.getTransactions()) {
 			if(bankaccount.getAccountNumber()==t.getFromAccount().getAccountNumber()||bankaccount.getAccountNumber()==t.getToAccount().getAccountNumber()) {
 				accounttransactions.add(t);
 			}
 		}
 		
+
+		
+		for (int i = 0; i < bank.getCustomers().size(); i++)
+		{
+			if(customer.getPersonid()==bank.getCustomers().get(i).getPersonid()) {
+				customer = bank.getCustomers().get(i);
+			}
+		}
+
 		session.setAttribute("customer", customer);
 		session.setAttribute("bankaccount", bankaccount);
 		session.setAttribute("accounttransactions", accounttransactions);

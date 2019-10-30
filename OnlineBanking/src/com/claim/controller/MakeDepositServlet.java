@@ -59,7 +59,7 @@ public class MakeDepositServlet extends HttpServlet {
 		
 		
 		long amount = Long.parseLong(request.getParameter("deposit"));
-		TransferManager.Transfer(bank,bank.getCustomers().get(0), bank.getCustomers().get(0).getAccounts().get(0), customer, account, amount);
+		TransferManager.Transfer(bank,bank.getCustomers().get(0), bank.getCustomers().get(0).getAccounts().get(0), customer, account, amount,"x");
 		
 		ArrayList<Transaction> accounttransactions=new ArrayList<Transaction>();
 		for(Transaction t:bank.getTransactions()) {

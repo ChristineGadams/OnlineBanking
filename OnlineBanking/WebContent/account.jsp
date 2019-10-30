@@ -189,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  <table class="table">
 		    <thead>
 		    <tr>
-		      <th scope="col">Transaction Date</th><th scope="col">From</th><th scope="col">Account</th><th scope="col">To Customer</th><th scope="col">To Account</th><th scope="col">Amount</th>
+		      <th scope="col">Transaction Date</th><th scope="col">From</th><th scope="col">Account</th><th scope="col">To Customer</th><th scope="col">To Account</th><th scope="col">Amount</th><th scope="col">External Description</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -203,6 +203,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			+"<td>"+t.getFromCustomer().getFullName()+"</td>"
 			+"<td>"+t.getFromAccount().getAccountNumber()+"</td>"
 			+"<td>"+tamount+"</td>"
+			+"<td>"+t.getExternalTransferDetails()+"</td>"
 			+"</tr>");
 			}
 			

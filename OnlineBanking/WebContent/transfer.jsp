@@ -180,7 +180,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  </div>
 		  <div class="tab-pane fade" id="transfer3" role="tabpanel" aria-labelledby="transfer3-tab">
 		  	<form action="TransferToExternalCustomerServlet" method="post">
-			  		<h4 class="container mb-sm-5 mb-2">Transfer From Your Account to Another Bank</h4>
+			  		<h4 class="container mb-sm-5 mb-2">Transfer From Your Account to Another Customer at Another Bank</h4>
 			  		<div><span>From your account: </span><% out.print(bankaccount.getAccountNumber());%><span> | Balance: $ <% out.print(bankaccount.getAccountBalance());%></span></div>
 			  		<div>
 					  	<div class="form-group">

@@ -69,7 +69,7 @@ public class SelfTransferServlet extends HttpServlet {
 		
 		
 		long amount = Long.parseLong(request.getParameter("transferamount"));
-		TransferManager.Transfer(bank,customer, account, customer, toaccount, amount);
+		TransferManager.Transfer(bank,customer, account, customer, toaccount, amount,"x");
 		
 		ArrayList<Transaction> accounttransactions=new ArrayList<Transaction>();
 		for(Transaction t:bank.getTransactions()) {

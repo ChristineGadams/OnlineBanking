@@ -12,13 +12,14 @@ public class Transaction
 	private Customer fromCustomer;
 	private Account fromAccount;
 	private long amount;
+	private String externalTransferDetails;
 	
 	public Transaction() {
 		
 	}
 	
 	public Transaction(Customer toCustomer, Account toAccount, Customer fromCustomer,
-			Account fromAccount, long amount)
+			Account fromAccount, long amount, String externalTransferDetails)
 	{
 		super();
 		this.toCustomer = toCustomer;
@@ -27,10 +28,11 @@ public class Transaction
 		this.fromAccount = fromAccount;
 		this.amount = amount;
 		this.transactiondate = new Date();
+		this.externalTransferDetails=  externalTransferDetails;
 	}
 	
 	public Transaction(Date date, Customer toCustomer, Account toAccount, Customer fromCustomer,
-			Account fromAccount, long amount)
+			Account fromAccount, long amount, String externalTransferDetails)
 	{
 		super();
 		this.toCustomer = toCustomer;
@@ -39,6 +41,7 @@ public class Transaction
 		this.fromAccount = fromAccount;
 		this.amount = amount;
 		this.transactiondate=date;
+		this.externalTransferDetails=  externalTransferDetails;
 	}
 
 	public Date getTransactiondate()
@@ -101,10 +104,21 @@ public class Transaction
 		this.amount = amount;
 	}
 
+	public String getExternalTransferDetails()
+	{
+		return externalTransferDetails;
+	}
+
+	public void setExternalTransferDetails(String externalTransferDetails)
+	{
+		this.externalTransferDetails = externalTransferDetails;
+	}
+
 	@Override
 	public String toString()
 	{
-		return f.format(transactiondate)+","+toCustomer.getPersonid()+","+toAccount.getAccountNumber()+","+fromCustomer.getPersonid()+","+fromAccount.getAccountNumber()+","+amount;
+		return f.format(transactiondate)+","+toCustomer.getPersonid()+","+toAccount.getAccountNumber()+","
+				+fromCustomer.getPersonid()+","+fromAccount.getAccountNumber()+","+amount+","+externalTransferDetails;
 		
 	}
 	

@@ -78,7 +78,7 @@ public class TransferToCustomerServlet extends HttpServlet {
 		
 		
 		long amount = Long.parseLong(request.getParameter("transferamount"));
-		TransferManager.Transfer(bank,customer, account, toCustomer, toCustomer.getAccounts().get(0), amount);
+		TransferManager.Transfer(bank,customer, account, toCustomer, toCustomer.getAccounts().get(0), amount,"x");
 		
 		ArrayList<Transaction> accounttransactions=new ArrayList<Transaction>();
 		for(Transaction t:bank.getTransactions()) {

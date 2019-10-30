@@ -59,7 +59,7 @@ public class WithdrawalServlet extends HttpServlet {
 		
 		
 		long amount = Long.parseLong(request.getParameter("deposit"));
-		TransferManager.Transfer(bank, customer, account, bank.getCustomers().get(1), bank.getCustomers().get(1).getAccounts().get(0), amount);
+		TransferManager.Transfer(bank, customer, account, bank.getCustomers().get(1), bank.getCustomers().get(1).getAccounts().get(0), amount,"x");
 		
 		ArrayList<Transaction> accounttransactions=new ArrayList<Transaction>();
 		for(Transaction t:bank.getTransactions()) {

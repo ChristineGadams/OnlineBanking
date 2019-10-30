@@ -194,7 +194,8 @@ public class Bank
 						account2 = customer2.getAccounts().get(i);
 					}
 				}
-				Transaction transaction = new Transaction(tdate, customer1,account1, customer2, account2,Long.parseLong(transactioncomponents[5]));
+				Transaction transaction = new Transaction(tdate, customer1,account1, customer2,
+												account2,Long.parseLong(transactioncomponents[5]),transactioncomponents[6]);
 				temptransactions.add(transaction);
 			}
 

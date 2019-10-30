@@ -73,7 +73,9 @@ public class TransferToExternalCustomerServlet extends HttpServlet {
 		
 		
 		long amount = Long.parseLong(request.getParameter("transferamount"));
-		TransferManager.Transfer(bank,customer, account, bank.getCustomers().get(3), bank.getCustomers().get(3).getAccounts().get(0), amount);
+		String externalTransferDetails = "To Bank Routing Code: "+request.getParameter("ToExternalRouter")+" Bank Account: "+request.getParameter("ToExternalNumber");
+		TransferManager.Transfer(bank,customer, account, bank.getCustomers().get(3), bank.getCustomers().get(3).getAccounts().get(0),
+									amount, externalTransferDetails);
 		
 		ArrayList<Transaction> accounttransactions=new ArrayList<Transaction>();
 		for(Transaction t:bank.getTransactions()) {

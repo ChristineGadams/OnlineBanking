@@ -6,9 +6,9 @@ public class TransferManager
 {
 	 
 	    
-	    public static void Transfer(Bank bank, Customer c, Account s, Customer c2, Account d, Long value)
+	    public static void Transfer(Bank bank, Customer c, Account s, Customer c2, Account d, Long value, String externalTransferDetails)
 	    {
-	    	Transaction t = new Transaction(c, s, c2, d, value);
+	    	Transaction t = new Transaction(c, s, c2, d, value, externalTransferDetails);
 	        s.RemoveFunds(value);
 	        bank.AddTransactionToBank(t);
 	        d.AddFunds(value);

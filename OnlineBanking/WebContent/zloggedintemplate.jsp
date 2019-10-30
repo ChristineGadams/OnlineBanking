@@ -2,7 +2,6 @@
     pageEncoding="ISO-8859-1"%>
     <%@ page import="com.claim.model.*" %>
     <% Customer customer = (Customer) session.getAttribute("customer"); %>
-    <% Account bankaccount = (Account) session.getAttribute("bankaccount"); %>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -62,11 +61,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Accounts</a>
 				    <div class="dropdown-menu">
 				      <% for(Account account:customer.getAccounts()){
-				    	  out.print("<a class=\"dropdown-item\" href=\"account.jsp?accountnumber="+account.getAccountNumber()+"\">"+account.getAccountType()+" | Acct#: "+account.getAccountNumber()+" | Balance $"+account.getAccountBalance());out.print("</a>");
+				    	  out.print("<a class=\"dropdown-item\" href=\"account?accountnumber="+account.getAccountNumber()+"\">"+account.getAccountType()+" | Acct#: "+account.getAccountNumber()+" | Balance $"+account.getAccountBalance());out.print("</a>");
 				      }
 				      %>
 				    </div>
 				 </li>
+				 <li class="active"><a href="profile.jsp">Profile</a></li>
+				 <li class="active"><a href="signout">Signout</a></li>
 <!--				<li class=""><a href="services.jsp">Services</a></li>
  				<li class=""><a href="blog.jsp">Blog</a></li>  
 				<li class=""><a href="contact.jsp">Contact</a></li>
@@ -89,32 +90,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //inner-banner -->
 
 <!-- breadcrumb -->
-<div class="breadcrumb-w3pvt">
-	<div class="container">
+<div class="breadcrumb-w3pvt py-0">
+	<div class="container py-1">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">
 				<a href="index3.jsp">Home</a>
 			</li>
-			<li class="breadcrumb-item" aria-current="page">Account Detail</li>
+			<li class="breadcrumb-item" aria-current="page">Profile</li>
 		</ol>
 	</nav>
 	</div>
 </div>
 <!-- //breadcrumb -->
 
-<!-- content -->
-<section class="contact py-5">
-	<div class="container py-lg-5">
-		<h2 class="heading mb-sm-5 mb-4">Your Account Details</h2>
-		<div class="row">
-			
-			
-		</div>
-	</div>
-</section>
+<!-- Content -->
 
-<!-- //content -->
+
+<!-- //Content -->
 
 <!-- footer -->
 <footer class="footer py-5">

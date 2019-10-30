@@ -110,7 +110,7 @@ public class Bank
 				String[] customercomponents = parsedLine[0].split(",");
 				Customer customer = new Customer(Integer.parseInt(customercomponents[0]), customercomponents[1],
 						customercomponents[2], customercomponents[3], customercomponents[4], customercomponents[5],
-						customercomponents[6], customercomponents[7], customercomponents[8], customercomponents[9]);
+						Boolean.parseBoolean(customercomponents[6]), customercomponents[7], customercomponents[8], customercomponents[9], customercomponents[10]);
 				if (Integer.parseInt(customercomponents[0]) > personidCounter)
 				{
 					personidCounter = Integer.parseInt(customercomponents[0]) + 1;

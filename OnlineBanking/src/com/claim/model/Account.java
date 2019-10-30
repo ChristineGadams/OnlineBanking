@@ -6,7 +6,7 @@ public abstract class Account implements ITransferSource, ITransferDestination
 {
 	public int accountNumberCounter = 1;
 	int accountNumber = 0;
-	AccountType accountType;
+	private AccountType accountType;
 	long accountBalance = 0;
 
 

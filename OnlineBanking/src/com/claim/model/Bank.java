@@ -133,6 +133,16 @@ public class Bank
 							}
 							customer.addAccountToAccounts(caccount);
 						}
+						if (accountcomponents[1].equals("House"))
+						{
+							HouseAccount caccount = new HouseAccount(Integer.parseInt(accountcomponents[0]),
+									Integer.parseInt(accountcomponents[2]));
+							if (Integer.parseInt(accountcomponents[0]) > accountNumberCounter)
+							{
+								accountNumberCounter = Integer.parseInt(accountcomponents[0]) + 1;
+							}
+							customer.addAccountToAccounts(caccount);
+						}
 					}
 				}
 				tempcustomers.add(customer);

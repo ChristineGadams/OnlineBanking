@@ -53,6 +53,16 @@ public class Customer extends Person
 		this.overdraftProtection = overdraftProtection;
 	}
 
+	public int getTransactionFee()
+	{
+		return transactionFee;
+	}
+
+	public void setTransactionFee(int transactionFee)
+	{
+		this.transactionFee = transactionFee;
+	}
+
 	public void addAccountToAccounts(Account account)
 	{
 		accounts.add(account);

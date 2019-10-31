@@ -400,25 +400,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="form-group">
 			    <label for="exampleFormControlSelect2">Year</label>
-			    <select name="statementmonth" multiple class="form-control" id="exampleFormControlSelect2">
+			    <select name="statementyear" multiple class="form-control" id="exampleFormControlSelect2">
 			      <option>2019</option>
 			    </select>
 			 </div>
              <div class="form-group">
 			    <label for="exampleFormControlSelect2">Month</label>
 			    <select name="statementmonth" multiple class="form-control" id="exampleFormControlSelect2">
-			      <option>January</option>
-			      <option>February</option>
-			      <option>March</option>
-			      <option>April</option>
+			      <option>Jan</option>
+			      <option>Feb</option>
+			      <option>Mar</option>
+			      <option>Apr</option>
 			      <option>May</option>
-			      <option>June</option>
-			      <option>July</option>
-			      <option>August</option>
-			      <option>Sept</option>
-			      <option>October</option>
-			      <option>November</option>
-			      <option>December</option>
+			      <option>Jun</option>
+			      <option>Jul</option>
+			      <option>Aug</option>
+			      <option>Sep</option>
+			      <option>Oct</option>
+			      <option>Nov</option>
+			      <option>Dec</option>
 			    </select>
 		  	</div>
 			

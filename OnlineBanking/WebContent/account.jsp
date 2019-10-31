@@ -169,7 +169,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        <button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#withdrawalModal">Withdrawal</button>
       </li>
       <li class="nav-item mx-1">
-      	<a href="transfer" class="btn btn-info btn-round" role="button" id="transferbutton">Transfer</a>
+      	<a href="transfer" class="btn btn-info btn-round" role="button" id="transferbutton">Transfer Funds</a>
+      </li>
+      <li class="nav-item mx-1">
+       <button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#orderChecksModal">Order Checks</button>
       </li>
       <li class="nav-item mx-1">
         <button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#DeleteAccountModal">Close Account</button>
@@ -191,7 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  <table class="table">
 		    <thead>
 		    <tr>
-		      <th scope="col">Transaction Date</th><th scope="col">From</th><th scope="col">Account</th><th scope="col">To Customer</th><th scope="col">To Account</th><th scope="col">Amount</th><th scope="col">External Description</th>
+		      <th scope="col">Transaction Date</th><th scope="col">From</th><th scope="col">Account</th><th scope="col">To Customer</th><th scope="col">To Account</th><th scope="col">Amount</th><th scope="col">Description</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -324,6 +327,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </div>
 </div>
 <!-- //Delete Account Modal -->
+
+<!-- Order Checks Modal -->
+<div class="modal fade" id="orderChecksModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-title text-center">
+          <h4>Order Checks</h4>
+        </div>
+        <div class="d-flex flex-column text-center">
+          <form action="OrderChecksServlet" method="post">
+            <div class="form-group">
+            	<label for="accountnumber">Account Number</label>
+              <input type="text" name="accountnumber" class="form-control" id="accountnumber" value=<%out.print(bankaccount.getAccountNumber());%> readonly>
+            </div>
+            <div><label for="startingCheck">Starting Check Number</label></div>
+            <input type="text" class="form-control" name="startingCheck" id="deposit" placeholder="Starting Check Number" data-rule="minlen:1" data-msg="Please enter at least 1 chars" aria-label="Amount (to the nearest dollar)">
+             <div class="form-group">
+			    <label for="exampleFormControlSelect2">Select Check Style</label>
+			    <select name="checkStyle" multiple class="form-control" id="exampleFormControlSelect2">
+			      <option>Batman</option>
+			      <option>Celebrate Earth</option>
+			      <option>Gone with the Wind</option>
+			      <option>Looney Tunes</option>
+			      <option>Pebbles</option>
+			      <option>Scooby-Doo Mystery Inc</option>
+			      <option>Superman</option>
+			      <option>Taz</option>
+			      <option>The Flintstones</option>
+			      <option>The Hobbit</option>
+			      <option>The Wizard of Oz</option>
+			      <option>Tom and Jerry</option>
+			    </select>
+		  	</div>
+			<img src="./images/warner.png" class="img-fluid" alt="Responsive image">
+            <button type="submit" class="btn btn-info btn-block btn-round">Order More Checks</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //Order Checks Modal -->
 
 <!-- footer -->
 <footer class="footer py-5">

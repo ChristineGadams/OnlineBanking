@@ -50,15 +50,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- nav -->
 		<nav class="py-3 d-lg-flex">
 			<div id="logo">
-<!-- 			<h1> <a href="index.jsp"><span class="fa fa-university"></span> Bank of Everyone </a></h1>-->
-				<h1><a href="index3.jsp"><span class="fa fa-university"> Bank of </span><% out.print(" "+customer.getFirstName()); %></a></h1>
+				<h1><a href="index3.jsp"><span class="fa fa-university"> Bank of <strong><% out.print(" "+customer.getFirstName()); %></strong></span></a></h1>
 			</div>
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
 			<ul class="menu ml-auto mt-1">
 				<li class="active"><a href="index3.jsp">Home</a></li>
 				<li class="nav-item dropdown">
-				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Accounts</a>
+				    <a class="nav-link dropdown-toggle navlink-dropdown-toggle" style="display: inline; " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Accounts</a>
 				    <div class="dropdown-menu" >
 				      <% for(Account account:customer.getAccounts()){
 				    	  out.print("<a class=\"dropdown-item\" href=\"account?accountnumber="+account.getAccountNumber()+"\">"+account.getAccountType()+" | Acct#: "+account.getAccountNumber()+" | Balance $"+account.getAccountBalance());out.print("</a>");
@@ -66,13 +65,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				      %>
 				    </div>
 				 </li>
-				 <li class="active"><a href="profile.jsp">Profile</a></li>
-				 <li class="active"><a href="signout">Signout</a></li>
-<!--				<li class=""><a href="services.jsp">Services</a></li>
- 				<li class=""><a href="blog.jsp">Blog</a></li>  
-				<li class=""><a href="contact.jsp">Contact</a></li>
-				<li class=""><a href="openaccount.jsp"><strong>Open New Account</strong></a></li>
-				<li class="last-grid"><a href="#">Call Now</a></li> -->
+				 <li class=""><a href="profile.jsp">Profile</a></li>
+				 <li class=""><a href="signout">Signout</a></li>
 			</ul>
 		</nav>
 		<!-- //nav -->
@@ -94,7 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="banner_slide_bg">
 						<li>
 							<div class="w3ls_banner_txt">
-								<h2 class="b-w3ltxt text-capitalize mt-md-4">Business <span>Loans.</span> </h2>
+								<h2 class="b-w3ltxt text-capitalize mt-md-4"><% out.print(customer.getFirstName()+", "); %>we're here to serve you! </h2>
 								<h4 class="b-w3ltxt text-capitalize">Cash Management</h4>
 								<p class="w3ls_pvt-title my-3">onec consequat sapien ut leo cursus rhoncus. Nullam dui mi, vulputate ac metus semper Nullam dui mi.
 								 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubiliacurae, Curabitur quis luctus lectus.

@@ -57,29 +57,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li class="active"><a href="index.jsp">Home</a></li>
 				<li class=""><a href="about.jsp">About</a></li>
 				<li class=""><a href="services.jsp">Services</a></li>
-<!-- 				<li class=""><a href="blog.jsp">Blog</a></li>   -->
 				<li class=""><a href="contact.jsp">Contact</a></li>
-				<li class=""><a href="openaccount.jsp"><strong>Open New Account</strong></a></li>
-				
-				 <li><button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#loginModal">Login</button>
+				<li class=""><a href="openaccount.jsp"><strong>Open New Account</strong></a></li>		
+				<li><button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#loginModal">Login</button>
 				 	  <% if(invalidloginmsg.equalsIgnoreCase("Sorry your login failed, please try again.")){out.print("<div>");out.print(invalidloginmsg);out.print("</div>");}%>
 				 </li>
-				 
-<!--			<li class=""><a href="" class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
-				<li class="last-grid"><a href="#">Call Now</a></li>
-				<li>
-                   <form class="navbar-form page-scroll form-inline" action="/LoginServlet" method="post">
-		                <div class="form-group">
-		                  <input type="email" class="form-control" name="loginemail" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-		                  <div class="validation"></div>
-		                </div>
-		                <div class="form-group">
-		                  <input type="text" name="password" class="form-control" id="password" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-		                  <div class="validation"></div>
-		                </div>
-				      <button type="submit" class="btn btn-primary">Submit</button>
-				   </form>                  
-                  </li>-->
 			</ul>
 		</nav>
 		<!-- //nav -->
@@ -87,41 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </header>
 <!-- //header -->
 
-<!-- Login Modal 
-<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign in to your Account</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="defaultForm-email" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
-        </div>
-
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="defaultForm-pass" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
-        </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-primary">Login</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- //Login Modal -->
-
-<!-- Modal 2 -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -144,28 +92,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <button type="submit" class="btn btn-info btn-block btn-round">Login</button>
           </form>
-          
-<!--      <div class="text-center text-muted delimiter">or use a social network</div>
-          <div class="d-flex justify-content-center social-buttons">
-            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Twitter">
-              <i class="fab fa-twitter"></i>
-            </button>
-            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Facebook">
-              <i class="fab fa-facebook"></i>
-            </button>
-            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Linkedin">
-              <i class="fab fa-linkedin"></i>
-            </button>
-          </div>  -->
-        </div>
+         </div>
       </div>
     </div>
-<!--  <div class="modal-footer d-flex justify-content-center">
-        <div class="signup-section">Not a member yet? <a href="#a" class="text-info"> Sign Up</a>.</div>
-      </div> -->
   </div>
 </div>
-<!-- //Modal 2 -->
+<!-- //Login Modal -->
 
 <!-- banner -->
 <div class="banner" id="home">
@@ -180,6 +112,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="banner_slide_bg">
 						<li>
 							<div class="w3ls_banner_txt">
+								<h3 class="b-w3ltxt text-capitalize mt-md-4">Checking <span>Accounts.</span> </h3>
+								<h4 class="b-w3ltxt text-capitalize">Cash Management</h4>
+								<p class="w3ls_pvt-title my-3">onec consequat sapien ut leo cursus rhoncus. Nullam dui mi, vulputate ac metus semper Nullam dui mi.
+								 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubiliacurae, Curabitur quis luctus lectus.
+								 Morbi at dui nisl.</p>
+								<a href="services.jsp" class="btn btn-banner my-3 mr-2">Read More</a>
+								<a href="openaccount.jsp" class="btn btn-banner1 my-3">Get Started</a>
+							</div>
+						</li>						
+						<li>
+							<div class="w3ls_banner_txt">
 								<h2 class="b-w3ltxt text-capitalize mt-md-4">Business <span>Loans.</span> </h2>
 								<h4 class="b-w3ltxt text-capitalize">Cash Management</h4>
 								<p class="w3ls_pvt-title my-3">onec consequat sapien ut leo cursus rhoncus. Nullam dui mi, vulputate ac metus semper Nullam dui mi.
@@ -189,17 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="contact.jsp" class="btn btn-banner1 my-3">Get Started</a>
 							</div>
 						</li>
-						<li>
-							<div class="w3ls_banner_txt">
-								<h3 class="b-w3ltxt text-capitalize mt-md-4">Savings <span>Accounts.</span> </h3>
-								<h4 class="b-w3ltxt text-capitalize">Cash Management</h4>
-								<p class="w3ls_pvt-title my-3">onec consequat sapien ut leo cursus rhoncus. Nullam dui mi, vulputate ac metus semper Nullam dui mi.
-								 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubiliacurae, Curabitur quis luctus lectus.
-								 Morbi at dui nisl.</p>
-								<a href="services.jsp" class="btn btn-banner my-3 mr-2">Read More</a>
-								<a href="contact.jsp" class="btn btn-banner1 my-3">Get Started</a>
-							</div>
-						</li>
+
 						<li>
 							<div class="w3ls_banner_txt">
 								<h3 class="b-w3ltxt text-capitalize mt-md-4">Debit and <span>Credit Cards.</span> </h3>
@@ -648,6 +581,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+<script>
+$(document).ready(function(){
+    $("#loginModal").on('shown.bs.modal', function(){
+        $(this).find('#email1').focus();
+    });
+});
+</script>
 </body>
 </html>

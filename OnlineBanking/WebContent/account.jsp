@@ -60,18 +60,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
 			<ul class="menu ml-auto mt-1">
-				<li class="active"><a href="index3.jsp">Home</a></li>
-				<li class="nav-item dropdown">
-				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Accounts</a>
-				    <div class="dropdown-menu">
-				      <% for(Account account:customer.getAccounts()){
-				    	  out.print("<a class=\"dropdown-item\" href=\"account.jsp?accountnumber="+account.getAccountNumber()+"\">"+account.getAccountType()+" | Acct#: "+account.getAccountNumber()+" | Balance $"+account.getAccountBalance());out.print("</a>");
-				      }
-				      %>
-				    </div>
-				 </li>
-				 <li class="active"><a href="profile.jsp">Profile</a></li>
-				 <li class="active"><a href="signout">Signout</a></li>
+				<li class=""><a href="index3.jsp">Home</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" style="display: inline; color: #fff;" data-toggle="dropdown" href="#"
+						role="button" aria-haspopup="true" aria-expanded="false">Accounts</a>
+						<div class="dropdown-menu" >
+							<%
+								for (Account account : customer.getAccounts())
+								{
+									out.print("<a class=\"dropdown-item\" href=\"account?accountnumber=" + account.getAccountNumber()
+											+ "\">" + account.getAccountType() + " | Acct#: " + account.getAccountNumber() + " | Balance $"
+											+ account.getAccountBalance());
+									out.print("</a>");
+								}
+							%>
+						</div></li>
+					<li class=""><a href="profile.jsp">Profile</a></li>
+					<li class=""><a href="signout">Signout</a></li>
 <!--				<li class=""><a href="services.jsp">Services</a></li>
  				<li class=""><a href="blog.jsp">Blog</a></li>  
 				<li class=""><a href="contact.jsp">Contact</a></li>

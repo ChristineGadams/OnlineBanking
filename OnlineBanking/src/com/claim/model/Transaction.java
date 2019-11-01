@@ -1,6 +1,7 @@
 package com.claim.model;
 
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.Date;
 
 public class Transaction
@@ -113,6 +114,15 @@ public class Transaction
 	{
 		this.externalTransferDetails = externalTransferDetails;
 	}
+	
+
+	public static Comparator<Transaction> tDateComparator = new Comparator<Transaction>() {         
+	    @Override         
+	    public int compare(Transaction t1, Transaction t2) {             
+	      return (t2.getTransactiondate().before(t1.getTransactiondate()) ? -1 :                     
+	              (t2.getTransactiondate().equals(t1.getTransactiondate()) ? 0 : 1));           
+	    }     
+	  };  
 
 	@Override
 	public String toString()

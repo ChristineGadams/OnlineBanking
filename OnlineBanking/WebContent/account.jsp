@@ -191,7 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <hr>
 <section class="container py-2">
 	<div class="container py-lg-1">
-		<h4 class="container mb-sm-5 mb-2">Account Transaction Details</h4>
+		<h4 class="container mb-sm-5 mb-2">Account Transaction Details for the Past 30 Days</h4>
 	</div>
 		<div class="table-responsive">
 		  <table class="table">

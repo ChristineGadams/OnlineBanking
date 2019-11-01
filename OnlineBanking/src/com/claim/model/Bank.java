@@ -85,6 +85,10 @@ public class Bank
 		out.flush();
 		out.close();
 		
+		TransactionSorter transactionSorter; 
+		transactionSorter = new TransactionSorter(transactions);
+		ArrayList<Transaction> sortedTransactions = transactionSorter.getSortedTransactionByDate();
+		transactions=sortedTransactions;
 		PrintWriter out2 = new PrintWriter(PATH + "banktransactions.txt");
 		out2.print(printTransactionsToString());
 		out2.flush();

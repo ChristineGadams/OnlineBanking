@@ -22,9 +22,9 @@ public class Test
 		System.out.println(b1.printTransactionsToString());
 		Customer customer = b1.getCustomers().get(5);
 		Account account = b1.getCustomers().get(5).getAccounts().get(0);
-		account.createMonthlyStatement("Oct", 2019, account, customer, b1);
+//		account.createMonthlyStatement("Oct", 2019, account, customer, b1);
 //		b1.setTransactions(b1.LoadTransactionsFromFile());
-//		System.out.println(b1);
+		System.out.println(b1);
 //		Bank b1=runcreate();
 //		System.out.println(b1);
 //		SaveorLoadBank.LoadBankFromFile();
@@ -40,7 +40,7 @@ public class Test
 //		System.out.println(c2);
 //		System.out.println(b1);
 //		System.out.println(b1);
-//		b1.saveTofilePrintWriter();
+		b1.saveTofilePrintWriter();
 		
 		
 		

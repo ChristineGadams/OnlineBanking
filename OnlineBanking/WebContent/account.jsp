@@ -55,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<nav class="py-3 d-lg-flex">
 			<div id="logo">
 <!-- 			<h1> <a href="index.jsp"><span class="fa fa-university"></span> Bank of Everyone </a></h1>-->
-				<h1><a href="index3.jsp"><span class="fa fa-university"> Bank of </span><% out.print(customer.getFirstName()); %></a></h1>
+				<h1><a href="index3.jsp"><span class="fa fa-university"> Bank of <Strong><% out.print(" "+customer.getFirstName()); %></Strong></a></h1>
 			</div>
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
@@ -77,11 +77,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div></li>
 					<li class=""><a href="profile.jsp">Profile</a></li>
 					<li class=""><a href="signout">Signout</a></li>
-<!--				<li class=""><a href="services.jsp">Services</a></li>
- 				<li class=""><a href="blog.jsp">Blog</a></li>  
-				<li class=""><a href="contact.jsp">Contact</a></li>
-				<li class=""><a href="openaccount.jsp"><strong>Open New Account</strong></a></li>
-				<li class="last-grid"><a href="#">Call Now</a></li> -->
 			</ul>
 		</nav>
 		<!-- //nav -->
@@ -129,36 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </section>
 
-<!-- Action Buttons 
-<section class="container py-1">
-	<div class="container2 py-lg-1">	
-	<div class="col-lg-12 col-md-8">
-					<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#makeDepositModal">Make Deposit</button>
-					<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#withdrawalModal">Withdrawal</button>
-					<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#withdrawalModal">Transfer</button>
-					<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#DeleteAccountModal">Close Account</button>
-	</div>
-	</div>
-</section>	
-<!-- //Action Buttons -->
-
-<!-- Nav  -->
-
-		<!-- nav 
-		<nav class="py-3 d-lg-flex">
-			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
-			<input type="checkbox" id="drop" />
-			<ul class="menu ml-auto mt-1">
-				<li><button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#makeDepositModal">Make Deposit</button></li>
-
-<!--				<li class=""><a href="services.jsp">Services</a></li>
- 				<li class=""><a href="blog.jsp">Blog</a></li>  
-				<li class=""><a href="contact.jsp">Contact</a></li>
-				<li class=""><a href="openaccount.jsp"><strong>Open New Account</strong></a></li>
-				<li class="last-grid"><a href="#">Call Now</a></li> -->
-<!-- 			</ul>
-		</nav>
-		<!-- //nav -->
+<!-- Action Buttons  -->
 <section class="container">
 <nav class="navbar navbar-expand-lg mx-md-auto navbar-light">
 <!--   <a class="navbar-brand" href="#">Navbar</a> -->
@@ -166,15 +132,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav1">
-    <ul class="navbar-nav mx-md-auto">
+    <ul class="navbar-nav ">
       <li class="nav-item active mx-1">
         <button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#makeDepositModal">Make Deposit</button>
       </li>
       <li class="nav-item mx-1">
        <button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#withdrawalModal">Withdrawal</button>
       </li>
-      <li class="nav-item mx-1">
-      	<a href="transfer" class="btn btn-info btn-round" role="button" id="transferbutton">Transfer Funds</a>
+      <li class="nav-item mx-1" >
+      	<a href="transfer" class="btn btn-info btn-round" type="button" id="transferbutton" style="color: #fff;">Transfer Funds</a>
       </li>
       <li class="nav-item mx-1">
        <button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#MonthlyStatementModal">Get Monthly Statement</button>
@@ -365,10 +331,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <input type="text" name="accountnumber" class="form-control" id="accountnumber" value=<%out.print(bankaccount.getAccountNumber());%> readonly>
             </div>
             <div><label for="startingCheck">Starting Check Number</label></div>
-            <input type="text" class="form-control" name="startingCheck" id="deposit" placeholder="Starting Check Number" data-rule="minlen:1" data-msg="Please enter at least 1 chars" aria-label="Amount (to the nearest dollar)">
+            <input type="text" class="form-control" name="startingCheck" id="startingCheck" placeholder="Starting Check Number" data-rule="minlen:1" data-msg="Please enter at least 1 chars" aria-label="Amount (to the nearest dollar)" required>
              <div class="form-group">
 			    <label for="exampleFormControlSelect2">Select Check Style</label>
-			    <select name="checkStyle" multiple class="form-control" id="exampleFormControlSelect2">
+			    <select name="checkStyle" multiple class="form-control" id="exampleFormControlSelect2" required>
 			      <option>Batman</option>
 			      <option>Celebrate Earth</option>
 			      <option>Gone with the Wind</option>
@@ -414,13 +380,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="form-group">
 			    <label for="exampleFormControlSelect2">Year</label>
-			    <select name="statementyear" multiple class="form-control" id="exampleFormControlSelect2">
+			    <select name="statementyear" multiple class="form-control" id="statementYear" required>
 			      <option>2019</option>
 			    </select>
 			 </div>
              <div class="form-group">
 			    <label for="exampleFormControlSelect2">Month</label>
-			    <select name="statementmonth" multiple class="form-control" id="exampleFormControlSelect2">
+			    <select name="statementmonth" multiple class="form-control" id="statementMonth" required>
 			      <option>Jan</option>
 			      <option>Feb</option>
 			      <option>Mar</option>
@@ -644,6 +610,22 @@ $('#statementmodalsubmit').on('click', function(e){
     e.preventDefault();
     $('#MonthlyStatementModal').modal('toggle'); //or  $('#IDModal').modal('hide');
     $('#monthlystatementmodal').submit();
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#makeDepositModal").on('shown.bs.modal', function(){
+        $(this).find('#deposit').focus();
+    });
+    $("#withdrawalModal").on('shown.bs.modal', function(){
+        $(this).find('#deposit').focus();
+    });
+    $("#orderChecksModal").on('shown.bs.modal', function(){
+        $(this).find('#startingCheck').focus();
+    });
+    $("#MonthlyStatementModal").on('shown.bs.modal', function(){
+        $(this).find('#statementYear').focus();
+    });
 });
 </script>
 

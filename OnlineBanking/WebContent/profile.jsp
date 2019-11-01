@@ -65,10 +65,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- 			<h1> <a href="index.jsp"><span class="fa fa-university"></span> Bank of Everyone </a></h1>-->
 					<h1>
 						<a href="index3.jsp"><span class="fa fa-university">
-								Bank of </span>
+								Bank of <strong>
 							<%
 								out.print(customer.getFirstName());
-							%></a>
+							%></strong></a>
 					</h1>
 				</div>
 				<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>

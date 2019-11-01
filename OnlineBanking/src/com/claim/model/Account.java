@@ -2,6 +2,7 @@ package com.claim.model;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public abstract class Account implements ITransferSource, ITransferDestination
@@ -105,12 +106,14 @@ public abstract class Account implements ITransferSource, ITransferDestination
 		return path;
 	}
 	
-	public String createMonthlyStatement(ArrayList<Transaction> transactions, String month, int year, Customer customer, Account account)
+	public String createMonthlyStatement(ArrayList<Transaction> transactions, String month, String year, Customer customer, Account account)
 	{
 
 		String path = "C:\\Users\\mpaul\\Documents\\eclipse-workspace\\FileStorage\\streams\\" + customer.getEmail()
 				+ "-" + month + "-" + year + "-" + "Statement.txt";
 //		PrintWriter out=null;
+		SimpleDateFormat fmonth=new SimpleDateFormat("MMM");
+		SimpleDateFormat fyear=new SimpleDateFormat("yyyy");
 		try (PrintWriter out = new PrintWriter(path))
 		{
 
@@ -131,9 +134,10 @@ public abstract class Account implements ITransferSource, ITransferDestination
 			out.print("\n\n");
 			for (Transaction t : transactions)
 			{
-//				if (account.getAccountNumber() == t.getFromAccount().getAccountNumber()
-//						|| account.getAccountNumber() == t.getToAccount().getAccountNumber())
-//				{
+				String tmonth = fmonth.format(t.getTransactiondate());
+				String tyear = fyear.format(t.getTransactiondate());
+				if (tmonth.equalsIgnoreCase(month)&&tyear.equalsIgnoreCase(year))
+				{
 					long tamount = 0;
 					String description = (t.getExternalTransferDetails().equalsIgnoreCase("x")) ? ""
 							: t.getExternalTransferDetails();
@@ -148,7 +152,7 @@ public abstract class Account implements ITransferSource, ITransferDestination
 					out.print(t.getTransactiondate() + ", " + t.getToCustomer().getFullName() + ", "
 							+ t.getToAccount().getAccountNumber() + ", " + t.getFromCustomer().getFullName() + ", "
 							+ t.getFromAccount().getAccountNumber() + ", " + tamount + ", " + description + "\n");
-//				}
+				}
 			}
 
 		} catch (FileNotFoundException e)

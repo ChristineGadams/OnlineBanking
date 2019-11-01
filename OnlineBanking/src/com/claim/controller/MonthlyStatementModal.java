@@ -43,7 +43,7 @@ public class MonthlyStatementModal extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		String month = request.getParameter("statementmonth");
-		int year = Integer.parseInt(request.getParameter("statementyear"));
+		String year = request.getParameter("statementyear");
 		ArrayList<Transaction> accounttransactions=(ArrayList<Transaction>) session.getAttribute("accounttransactions");
 		
 		

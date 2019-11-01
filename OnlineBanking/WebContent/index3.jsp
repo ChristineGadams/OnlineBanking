@@ -51,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<nav class="py-3 d-lg-flex">
 			<div id="logo">
 <!-- 			<h1> <a href="index.jsp"><span class="fa fa-university"></span> Bank of Everyone </a></h1>-->
-				<h1><a href="index3.jsp"><span class="fa fa-university"> Bank of </span><% out.print(customer.getFirstName()); %></a></h1>
+				<h1><a href="index3.jsp"><span class="fa fa-university"> Bank of </span><% out.print(" "+customer.getFirstName()); %></a></h1>
 			</div>
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li class="active"><a href="index3.jsp">Home</a></li>
 				<li class="nav-item dropdown">
 				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Accounts</a>
-				    <div class="dropdown-menu">
+				    <div class="dropdown-menu" >
 				      <% for(Account account:customer.getAccounts()){
 				    	  out.print("<a class=\"dropdown-item\" href=\"account?accountnumber="+account.getAccountNumber()+"\">"+account.getAccountType()+" | Acct#: "+account.getAccountNumber()+" | Balance $"+account.getAccountBalance());out.print("</a>");
 				      }
